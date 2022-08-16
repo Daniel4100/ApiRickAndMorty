@@ -108,7 +108,7 @@ button:active {
   justify-content: center;
   align-items: center;
 }
-ul{
+article ul{
   width: 100%;
   list-style: none;
   padding: 0;
@@ -121,6 +121,39 @@ ul span{
   color: gray;
 }
 /*  */
+/* pagination */
+
+.pagination-container{
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  background-color: #23c48400;
+  
+}
+.arrow{
+  color: #e8e8e8;
+  background-color: #124653;
+  padding: 0 .8em;
+  cursor: pointer;
+}
+.pagination-list{
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  
+}
+.page-number{
+  color: #e8e8e8;
+  padding: 0 .8em;
+  cursor: pointer;
+}
+.page-active{
+  background-color: #1c343f;
+}
+
+
 .resident-card{
   width: 100%;
   height: 100%;
@@ -221,6 +254,8 @@ img{
   flex-wrap: wrap;
   justify-content: center;
   padding: 3em 1em;
+  max-width: 1440px;
+  min-height: 1086px;
 }
 
 
@@ -244,9 +279,16 @@ img{
 }
 }
 @media (min-width: 434px){
-  ul{
+  article ul{
     flex-direction: row;
     text-align: center;
     justify-content: space-around;
   }
+  
+}
+@media (min-width: 761px){
+  .container{
+    min-height: 486px;
+  }
+  
 }

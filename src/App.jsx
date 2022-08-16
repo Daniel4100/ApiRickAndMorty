@@ -7,13 +7,14 @@ import Form from "./components/Form";
 import { useEffect } from "react";
 import Residents from "./components/Residents";
 import axios from "axios";
+import Pagination from "./components/Pagination";
 
 let random = Math.ceil(Math.random() * 126);
 
 function App() {
   const [inpurSearch, setInpurSearch] = useState();
   const [nRandom, setnRandom] = useState(random);
-
+  const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
     if (inpurSearch) {
@@ -51,8 +52,29 @@ function App() {
   call7 && axioall.push(call7.results.map(e=> finalfinal.push(e)))
   
   
-  // console.log(axioall)
-  // console.log(finalfinal)
+  let arrayReisdents = []
+  const residentsPerPage = 6
+  if (location?.residents.length < residentsPerPage) {
+    arrayReisdents = [...location?.residents]
+  }else{
+    const lastResident = currentPage * residentsPerPage
+    arrayReisdents = location?.residents.slice(lastResident - residentsPerPage, lastResident)
+  }
+
+  let arrayPages = []
+  let quantityPages = Math.ceil(location?.residents.length / residentsPerPage)
+  const pagesPerBlock = 5
+  let currentBlock = Math.ceil(currentPage / pagesPerBlock)
+  if (currentBlock * pagesPerBlock >= quantityPages) {
+    for (let i = currentBlock * pagesPerBlock - pagesPerBlock + 1; i <= quantityPages; i++) {
+      arrayPages.push(i)
+    }
+  }else{
+    for (let i = currentBlock * pagesPerBlock - pagesPerBlock + 1; i <= currentBlock * pagesPerBlock; i++) {
+      arrayPages.push(i)
+    }
+  }
+
 
   return (
     <div className="App">
@@ -62,9 +84,16 @@ function App() {
       <div className="box2">
         <InfoLocation location={location} />
       </div>
-      
+
+      <Pagination
+      arrayPages={arrayPages}
+      currentPage={currentPage}
+      setCurrentPage={setCurrentPage}
+      quantityPages={quantityPages}
+      />
+
       <div className="container">
-        {location?.residents.map((url) => (
+        {arrayReisdents?.map((url) => (
           <Residents key={url} url={url} />
         ))}
       </div>
