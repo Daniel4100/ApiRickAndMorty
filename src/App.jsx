@@ -21,6 +21,7 @@ function App() {
       let pivot = finalfinal.filter(e => e.name.includes(inpurSearch))
       // console.log(pivot[0].id)
       setnRandom(pivot[0].id);
+      setCurrentPage(1)
     } else {
       setnRandom(random);
     }
