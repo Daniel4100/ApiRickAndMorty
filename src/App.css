@@ -257,7 +257,9 @@ img{
   max-width: 1440px;
   min-height: 1086px;
 }
-
+.ajuste{
+  min-height: 386px;
+}
 
 
 @media (min-width: 364px){
@@ -289,6 +291,9 @@ img{
 @media (min-width: 761px){
   .container{
     min-height: 486px;
+  }
+  .ajuste{
+    min-height: 286px;
   }
   
 }

@@ -93,7 +93,7 @@ function App() {
       quantityPages={quantityPages}
       />
 
-      <div className="container">
+      <div className={arrayReisdents?.length <= 3  ? 'container ajuste' : 'container'}>
         {arrayReisdents?.map((url) => (
           <Residents key={url} url={url} />
         ))}
