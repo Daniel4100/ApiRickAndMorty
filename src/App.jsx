@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import Residents from "./components/Residents";
 import axios from "axios";
 import Pagination from "./components/Pagination";
+import Footer from "./components/Footer";
 
 let random = Math.ceil(Math.random() * 126);
 
@@ -98,6 +99,7 @@ function App() {
           <Residents key={url} url={url} />
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
