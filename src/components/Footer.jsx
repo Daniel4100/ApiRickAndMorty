@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
       <div className="footer-details">
         <p>
-            este proyecto lo realize durante mi formación como dev web full stack en academlo, apliqué mis conocimientos en las siguientes tecnologias: HTML5, CSS, react js
+            este proyecto lo realize durante mi formación como dev web full stack en academlo, apliqué mis conocimientos en las siguientes tecnologias: HTML5, CSS, react js y vite.
         </p>
       </div>
     </footer>
